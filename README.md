@@ -27,6 +27,7 @@ For running this Spring Boot Application you need Java 8 and Docker. If you do n
 
 - Docker for Windows [Link](https://docs.docker.com/docker-for-windows/install/)
 - Docker for OS X [Link](https://docs.docker.com/docker-for-mac/install/)
+- Docker compose [Link](https://docs.docker.com/compose/install/)
 - Java for Windows [Link](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 - Java for Mac [Link](https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html)
 
