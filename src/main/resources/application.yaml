@@ -1,0 +1,6 @@
+com:
+  aera:
+    contacts:
+      elasticsearch:
+        host: localhost
+        port: 9200
