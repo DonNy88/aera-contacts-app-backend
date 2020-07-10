@@ -5,7 +5,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.Objects;
 
-@Document(indexName = "contacts")
+@Document(indexName = "contacts", createIndex = true)
 public class Contact {
 
     @Id
@@ -110,5 +110,21 @@ public class Contact {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getName(), getPhoneNumber(), getSurname(), getAddress(), getEmail(), getLatitude(), getLongitude(), getOtherInfo());
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("\nContact{");
+        sb.append("\n\tid='").append(id).append('\'');
+        sb.append(", \n\tname='").append(name).append('\'');
+        sb.append(", \n\tphoneNumber='").append(phoneNumber).append('\'');
+        sb.append(", \n\tsurname='").append(surname).append('\'');
+        sb.append(", \n\taddress='").append(address).append('\'');
+        sb.append(", \n\temail='").append(email).append('\'');
+        sb.append(", \n\tlatitude=").append(latitude);
+        sb.append(", \n\tlongitude=").append(longitude);
+        sb.append(", \n\totherInfo='").append(otherInfo).append('\'');
+        sb.append("\n}");
+        return sb.toString();
     }
 }

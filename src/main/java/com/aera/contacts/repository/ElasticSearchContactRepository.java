@@ -5,9 +5,10 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface ElasticSearchContactRepository extends ElasticsearchRepository<Contact, String> {
 
-    // List<Contact> findAll();
+    Set<Contact> findByPhoneNumber(String phoneNumber);
 }
