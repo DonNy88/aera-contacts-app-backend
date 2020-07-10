@@ -1,5 +1,5 @@
 # Area Contact Backend
----
+
 This simple backend service simulates a Contact app.
 
 ## 📝 Table of Contents
