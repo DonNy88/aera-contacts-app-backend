@@ -10,13 +10,13 @@ A simple backend service that simulates a Contatc app.
 - [Usage](#usage)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
+<!-- - [Contributing](../CONTRIBUTING.md) -->
 <!-- - [Acknowledgments](#acknowledgement) -->
 
 ## 🧐 About <a name = "about"></a>
 
-The purpose of this Spring Boot application is to try a new way to query aa Elasticsearch db throw Spring Data.
+The purpose of this Spring Boot application is to try a new way to query aa Elasticsearch db throw Spring Data. 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -24,47 +24,31 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 For running this Spring Boot Application you need Java 8 and Docker. If you do not have these things yet here below you can find where get them.
-```
-Give examples
-```
 
-### Installing
-
-```bash
-yarn install
-```
-
-## 🔧 Running the tests <a name = "tests"></a>
-
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+- Docker for Windows [Link](https://docs.docker.com/docker-for-windows/install/)
+- Docker for OS X [Link](https://docs.docker.com/docker-for-mac/install/)
+- Java for Windows [Link](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+- Java for Mac [Link](https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html)
 
 ## 🎈 Usage <a name="usage"></a>
 
 For run this localy you can use this node script:
 
 ```bash
-yarn server
+docker-compose up --build
 ```
+
+##  Rest Endpoint <a name = "endpoint"></a>
+
+- GET /contacts (retrieve all contacts)
+- POST /contacts (add a new contact)
+- PUT /contacts (update a contact)
+- DELETE /contacts (delete a contact)
+- GET /contacts/search (search contacts by phone number full match or full text on other fields)
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Add additional notes about how to deploy this on a live system.
+See [TODO.md](../TODO.md) file.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
