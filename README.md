@@ -9,7 +9,7 @@ This simple backend service simulates a Contact app.
 - [Deployment](#deployment)
 - [Usage](#usage)
 - [Built Using](#built_using)
-- [TODO](../TODO.md)
+- [TODO](./TODO.md)
 - [Authors](#authors)
 <!-- - [Contributing](../CONTRIBUTING.md) -->
 <!-- - [Acknowledgments](#acknowledgement) -->
@@ -49,7 +49,7 @@ docker-compose up --build
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-See [TODO.md](../TODO.md) file.
+See [TODO.md](./TODO.md) file.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
