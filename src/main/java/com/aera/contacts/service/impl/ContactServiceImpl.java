@@ -14,6 +14,8 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,18 +26,22 @@ public class ContactServiceImpl implements ContactService {
     private static Logger log = LogManager.getLogger(ContactServiceImpl.class);
 
     final ElasticSearchContactRepository repository;
-
     final ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     @Autowired
-    public ContactServiceImpl(ElasticSearchContactRepository repository, ElasticsearchRestTemplate elasticsearchRestTemplate) {
+    public ContactServiceImpl(ElasticSearchContactRepository repository,
+                              ElasticsearchRestTemplate elasticsearchRestTemplate) {
         this.repository = repository;
         this.elasticsearchRestTemplate = elasticsearchRestTemplate;
     }
 
     @Override
-    public Iterable<Contact> getAllContacts() {
-        return repository.findAll();
+    public List<Contact> getAllContacts() {
+        List<Contact> result = new ArrayList<>();
+
+        repository.findAll().forEach(contact -> result.add(contact));
+
+        return result;
     }
 
     @Override

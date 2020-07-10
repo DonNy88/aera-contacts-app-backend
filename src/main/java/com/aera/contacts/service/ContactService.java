@@ -2,6 +2,7 @@ package com.aera.contacts.service;
 
 import com.aera.contacts.model.Contact;
 
+import java.util.List;
 import java.util.Set;
 
 public interface ContactService {
@@ -10,7 +11,7 @@ public interface ContactService {
      * Get all contacts saved on DB
      *
      */
-    Iterable<Contact> getAllContacts();
+    List<Contact> getAllContacts();
 
     /**
      * Save or update a contact on DB. If the input has the id field
