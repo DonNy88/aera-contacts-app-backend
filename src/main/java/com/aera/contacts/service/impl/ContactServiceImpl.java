@@ -23,14 +23,18 @@ public class ContactServiceImpl implements ContactService {
 
     private static Logger log = LogManager.getLogger(ContactServiceImpl.class);
 
-    @Autowired
-    ElasticSearchContactRepository repository;
+    final ElasticSearchContactRepository repository;
+
+    final ElasticsearchRestTemplate elasticsearchRestTemplate;
 
     @Autowired
-    ElasticsearchRestTemplate elasticsearchRestTemplate;
+    public ContactServiceImpl(ElasticSearchContactRepository repository, ElasticsearchRestTemplate elasticsearchRestTemplate) {
+        this.repository = repository;
+        this.elasticsearchRestTemplate = elasticsearchRestTemplate;
+    }
 
     @Override
-    public Iterable<Contact> getAllContancts() {
+    public Iterable<Contact> getAllContacts() {
         return repository.findAll();
     }
 
@@ -50,12 +54,17 @@ public class ContactServiceImpl implements ContactService {
                 .getSearchHits()
                 .stream().map(elem -> elem.getContent())
                 .collect(Collectors.toSet());
+        log.debug("search by fulltext search: " + fullTextQueryResult);
 
         Set<Contact> phoneNumberMetchSearchResult = repository.findByPhoneNumber(phoneNumber);
+        log.debug("search by phoneNumber match: " + phoneNumberMetchSearchResult);
 
-        return Stream.of(fullTextQueryResult, phoneNumberMetchSearchResult)
+        Set<Contact> mergeResult = Stream.of(fullTextQueryResult, phoneNumberMetchSearchResult)
                 .flatMap(elem -> elem.stream())
                 .collect(Collectors.toSet());
+
+        log.debug("search result: " + mergeResult);
+        return mergeResult;
     }
 
     private SearchHits<Contact> fullTextQuery(String text) {

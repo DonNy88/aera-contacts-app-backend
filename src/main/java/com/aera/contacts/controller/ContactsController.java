@@ -18,9 +18,7 @@ public class ContactsController {
 
     @GetMapping("/contact")
     public Object getAllContacts() {
-        Iterable<Contact> contacts = service.getAllContancts();
-        log.info("contants retrived: " + contacts);
-        return contacts;
+        return service.getAllContacts();
     }
 
     @PostMapping("/contact")
