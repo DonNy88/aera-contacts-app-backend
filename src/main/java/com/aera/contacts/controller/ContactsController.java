@@ -17,7 +17,7 @@ public class ContactsController {
     ContactService service;
 
     @GetMapping("/contact")
-    public Iterable<Contact> getAllContacts() {
+    public Object getAllContacts() {
         Iterable<Contact> contacts = service.getAllContancts();
         log.info("contants retrived: " + contacts);
         return contacts;
@@ -41,9 +41,10 @@ public class ContactsController {
         service.removeContact(id);
     }
 
-    @PostMapping("/contact/search")
-    public Object searchContact(@RequestBody Contact contact) {
+    @GetMapping("/contact/search")
+    public Object searchContact(@RequestParam(required = false) String text,
+                                @RequestParam(required = false) String phoneNumber) {
         // TODO: input validation
-        return service.search(contact);
+        return service.search(text, phoneNumber);
     }
 }

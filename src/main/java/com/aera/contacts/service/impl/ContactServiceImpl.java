@@ -5,7 +5,7 @@ import com.aera.contacts.repository.ElasticSearchContactRepository;
 import com.aera.contacts.service.ContactService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.elasticsearch.index.query.Operator;
+import org.elasticsearch.index.query.MultiMatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
@@ -15,6 +15,8 @@ import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -43,7 +45,28 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Set<Contact> search(Contact contact) {
-        return repository.findByPhoneNumber(contact.getPhoneNumber());
+    public Set<Contact> search(String text, String phoneNumber) {
+        Set<Contact> fullTextQueryResult = fullTextQuery(text)
+                .getSearchHits()
+                .stream().map(elem -> elem.getContent())
+                .collect(Collectors.toSet());
+
+        Set<Contact> phoneNumberMetchSearchResult = repository.findByPhoneNumber(phoneNumber);
+
+        return Stream.of(fullTextQueryResult, phoneNumberMetchSearchResult)
+                .flatMap(elem -> elem.stream())
+                .collect(Collectors.toSet());
+    }
+
+    private SearchHits<Contact> fullTextQuery(String text) {
+        Query query = new NativeSearchQueryBuilder().withQuery(QueryBuilders.multiMatchQuery(text)
+                .field("name")
+                .field("surname")
+                .field("email")
+                .field("address")
+                .field("otherInfo")
+                .type(MultiMatchQueryBuilder.Type.BEST_FIELDS)).build();
+
+        return elasticsearchRestTemplate.search(query, Contact.class);
     }
 }

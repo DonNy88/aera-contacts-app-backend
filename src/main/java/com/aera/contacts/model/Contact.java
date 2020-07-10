@@ -114,17 +114,17 @@ public class Contact {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Contact{");
-        sb.append("id='").append(id).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", phoneNumber='").append(phoneNumber).append('\'');
-        sb.append(", surname='").append(surname).append('\'');
-        sb.append(", address='").append(address).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", latitude=").append(latitude);
-        sb.append(", longitude=").append(longitude);
-        sb.append(", otherInfo='").append(otherInfo).append('\'');
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("\nContact{");
+        sb.append("\n\tid='").append(id).append('\'');
+        sb.append(", \n\tname='").append(name).append('\'');
+        sb.append(", \n\tphoneNumber='").append(phoneNumber).append('\'');
+        sb.append(", \n\tsurname='").append(surname).append('\'');
+        sb.append(", \n\taddress='").append(address).append('\'');
+        sb.append(", \n\temail='").append(email).append('\'');
+        sb.append(", \n\tlatitude=").append(latitude);
+        sb.append(", \n\tlongitude=").append(longitude);
+        sb.append(", \n\totherInfo='").append(otherInfo).append('\'');
+        sb.append("\n}");
         return sb.toString();
     }
 }
