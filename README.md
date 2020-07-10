@@ -32,7 +32,7 @@ For running this Spring Boot Application you need Java 8 and Docker. If you do n
 
 ## 🎈 Usage <a name="usage"></a>
 
-For run this localy you can use this node script:
+For run this localy you can use this command:
 
 ```bash
 docker-compose up --build
