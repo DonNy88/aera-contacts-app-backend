@@ -1,6 +1,6 @@
 # Area Contact Backend
 ---
-A simple backend service that simulates a Contatc app.
+This simple backend service simulates a Contact app.
 
 ## 📝 Table of Contents
 
@@ -52,10 +52,10 @@ See [TODO.md](../TODO.md) file.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [postgres](https://postgresql.org/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-- [TypeScript](https://typescriptlang.org/) - Server Code Language
+- [Docker](https://www.docker.com/)
+- [Maven](https://maven.apache.org/)
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Elasticsearch](https://www.elastic.co/)
 
 ## ✍️ Authors <a name = "authors"></a>
 
