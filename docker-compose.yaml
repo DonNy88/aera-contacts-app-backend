@@ -4,3 +4,9 @@ services:
     image: 'bitnami/elasticsearch:7.8.0-debian-10-r18'
     ports:
       - 9200:9200
+  backend:
+    depends_on:
+      - elasticsearch
+    build: .
+    ports:
+    - 8080:8080
