@@ -7,4 +7,5 @@ public interface ContactService {
     Iterable<Contact> getAllContancts();
     Contact saveOrUpdateContact(Contact contact);
     void removeContact(String id);
+    Iterable<Contact> search(Contact contact);
 }

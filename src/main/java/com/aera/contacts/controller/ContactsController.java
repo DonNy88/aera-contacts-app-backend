@@ -40,4 +40,10 @@ public class ContactsController {
     public void deleteContact(@RequestParam String id) {
         service.removeContact(id);
     }
+
+    @PostMapping("/contact/search")
+    public Object searchContact(@RequestBody Contact contact) {
+        // TODO: input validation
+        return service.search(contact);
+    }
 }
